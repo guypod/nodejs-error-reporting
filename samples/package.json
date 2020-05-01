@@ -15,12 +15,15 @@
     "exception-test": "samples test app --code 500 --msg SyntaxError --url \"http://localhost:33333/exception\" --port 33333  -- snippets.js express",
     "system-test": "ava -T 1m --verbose system-test/*.test.js",
     "all-test": "npm run system-test && npm run error-test && npm run exception-test",
-    "test": "repo-tools test run --cmd npm -- run cover"
+    "test": "repo-tools test run --cmd npm -- run cover",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "@google-cloud/error-reporting": "0.2.1",
     "express": "4.15.4",
-    "yargs": "8.0.2"
+    "yargs": "8.0.2",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@google-cloud/nodejs-repo-tools": "2.1.0",
@@ -28,5 +31,6 @@
     "nyc": "11.2.1",
     "proxyquire": "1.8.0",
     "sinon": "3.2.0"
-  }
+  },
+  "snyk": true
 }
